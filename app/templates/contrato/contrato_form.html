@@ -1,0 +1,8 @@
+{% load widget_tweaks%}
+
+<h2>Formulário do Contrato</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Salvar</button>
+</form>

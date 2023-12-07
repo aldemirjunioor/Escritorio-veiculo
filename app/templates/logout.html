@@ -1,0 +1,24 @@
+{% load static %}
+{% load widget_tweaks%}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+</head>
+<body>
+
+    <h1>Logout</h1>
+
+    <p>Você está prestes a encerrar a sessão. Tem certeza?</p>
+
+    <!-- Formulário para enviar a solicitação de logout usando o método POST -->
+    <form action="/logout" method="get">
+        <!-- Adicione outros campos do formulário, se necessário -->
+        <button type="submit">Logout</button>
+    </form>
+
+</body>
+</html>

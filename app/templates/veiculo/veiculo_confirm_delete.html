@@ -1,0 +1,6 @@
+<h2>Confirmar Exclusão</h2>
+<p>Deseja realmente excluir o veículo"{{ veiculo.num_veiculo }} - {{ veiculo.placa }}"?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Confirmar</button>
+</form>

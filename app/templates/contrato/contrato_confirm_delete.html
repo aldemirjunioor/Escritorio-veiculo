@@ -1,0 +1,6 @@
+<h2>Confirmar a Exclusão</h2>
+<p>Deseja realmente excluir o contrato <b>"{{ contrato.num }}</b> que vence no dia: <b>{{ contrato.data }}"</b>?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Confirmar</button>
+</form>

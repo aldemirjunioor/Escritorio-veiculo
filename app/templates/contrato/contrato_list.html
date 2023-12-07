@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contratos List</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <button><a href="{% url 'home' %}">Voltar</a></button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Número do Contrato</th>
+                <th scope="col">Numero do Escritório</th>
+                <th scope="col">Data de Vencimento do Contrato</th>
+                <th scope="col">Duração do Contrato</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cont in object_list %}
+            <tr>
+                <td>{{ cont.num }}</td>
+                <td>{{ cont.num_escritorio }}</td>
+                <td>{{ cont.data }}</td>
+                <td>{{ cont.duracao }}</td>
+                <td>
+                    <button type="button" class="btn btn-warning"><a style="color: #fff;"
+                            href="{% url 'contrato_update' cont.id %}" role="button">Atualizar</a></button>
+                    <button type="button" class="btn btn-danger"><a style="color: #fff;"
+                            href="{% url 'contrato_delete' cont.id %}" role="button">Excluir</a></button>
+                </td>
+                {% empty %}
+                <td>Não Existe Nenhum Contrato Cadastrado</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button style="text-align: center;" type="button" class="btn btn-success"><a style="color: #fff;"
+            href="{% url 'contrato_create' %}" role="button">Criar</a></button>
+
+
+</body>
+
+</html>

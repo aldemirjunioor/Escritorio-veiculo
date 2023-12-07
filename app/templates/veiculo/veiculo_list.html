@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veículos List</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <button><a href="{% url 'home' %}">Voltar</a></button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Número do Veículo</th>
+                <th scope="col">Placa do Veículo</th>
+                <th scope="col">Data da Próxima Manutenção</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for v in object_list %}
+                    <tr> 
+                    <td>{{ v.num_veiculo }}</td>
+                        <td>{{ v.placa }}</td>
+                        <td>{{ v.data_prox_manut }}</td>
+                        <td>
+                            <button type="button" class="btn btn-warning"><a style="color: #fff;" href="{% url 'veiculo_update' v.id %}" role="button">Atualizar</a></button>
+                            <button type="button" class="btn btn-danger"><a style="color: #fff;" href="{% url 'veiculo_delete' v.id %}" role="button">Excluir</a></button>
+                        </td>
+                    {% empty %}
+                        <td>Não Existe Nenhum Veículo Cadastrado</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            <button style="text-align: center;" type="button" class="btn btn-success"><a style="color: #fff;" href="{% url 'veiculo_create' %}" role="button">Criar</a></button>
+    
+    
+</body>
+
+</html>
+
+
+
